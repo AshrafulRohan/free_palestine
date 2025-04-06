@@ -1,0 +1,166 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+}
+
+.game-container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 800px;
+}
+.solidarity-logo {
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 8px;
+    max-width: 200px;
+}
+
+.creator-credit {
+    margin-top: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.creator-name {
+    font-weight: bold;
+    color: #4CAF50; /* Or any color matching your game */
+}
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+#target-area {
+    width: 100%;
+    height: 400px;
+    margin: 20px auto;
+    position: relative;
+    background-color: rgba(233, 233, 233, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid rgba(255,0,0,0.3);
+}
+
+.target {
+    position: absolute;
+    cursor: crosshair;
+    transition: transform 0.1s;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #f44336;
+    box-shadow: 0 0 15px rgba(244,67,54,0.5);
+}
+
+.target:hover {
+    transform: scale(1.1);
+}
+
+.target.shot {
+    animation: shotAnimation 0.3s forwards;
+}
+
+@keyframes shotAnimation {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+#start-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#pause-btn {
+    background-color: #FFC107;
+    color: black;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+button:disabled {
+    opacity: 0.5;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Blood effects */
+.blood-effect {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('https://i.imgur.com/XHtQnQZ.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 10;
+    animation: bloodSplash 0.8s forwards;
+}
+
+@keyframes bloodSplash {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+#difficulty {
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    background-color: white;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    #target-area {
+        height: 300px;
+    }
+    
+    .target {
+        width: 60px;
+        height: 60px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
